@@ -19,15 +19,24 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-red-50">
-      {/* Enhanced Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-red-200 to-red-300 rounded-full opacity-30 animate-pulse"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-red-300 to-red-400 rounded-full opacity-40 animate-bounce"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-red-100 to-red-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-red-400 to-red-500 rounded-full opacity-25 animate-spin slow"></div>
+    <section id="home" className="min-h-screen relative overflow-hidden">
+      {/* Beautiful Interior Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-red-50/95 z-10"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{
+            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="interior" patternUnits="userSpaceOnUse" width="120" height="120"><rect width="120" height="120" fill="%23f9fafb"/><rect x="20" y="20" width="80" height="80" fill="%23ef4444" opacity="0.05"/><circle cx="60" cy="60" r="25" fill="%23dc2626" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23interior)"/></svg>')`
+          }}
+        ></div>
         
-        {/* Floating Sparkles */}
+        {/* Decorative Interior Elements */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-red-100/30 to-red-200/30 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-r from-red-200/40 to-red-300/40 rounded-full opacity-50 animate-bounce"></div>
+        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-r from-red-50/20 to-red-100/20 rounded-full opacity-30 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-gradient-to-r from-red-300/25 to-red-400/25 rounded-full opacity-40 animate-spin slow"></div>
+        
+        {/* Floating Design Elements */}
         <div className="absolute top-1/4 left-1/3 animate-bounce delay-500">
           <Sparkles className="w-6 h-6 text-red-300 opacity-60" />
         </div>
@@ -38,9 +47,9 @@ export const Hero = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Enhanced Logo */}
+          {/* Logo without animation */}
           <div className="mb-8 animate-fade-in">
-            <div className="w-24 h-24 mx-auto mb-6 transform hover:scale-110 transition-all duration-500 animate-pulse">
+            <div className="w-24 h-24 mx-auto mb-6 transform hover:scale-110 transition-all duration-500">
               <img 
                 src="/lovable-uploads/7d1d12d5-29c6-4fa2-b37c-46951d2efbb5.png" 
                 alt="RedCherry Interiors Logo" 
@@ -51,7 +60,7 @@ export const Hero = () => {
 
           {/* Enhanced Main Title */}
           <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 animate-fade-in">
-            <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent animate-pulse">
+            <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
               REDCHERRY
             </span>
             <br />

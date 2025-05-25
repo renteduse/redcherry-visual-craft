@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -40,6 +39,7 @@ export const Navbar = () => {
             </div>
           </div>
 
+          
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
               <button onClick={() => scrollToSection("home")} className="text-gray-700 hover:text-red-500 transition-all duration-300 relative group">

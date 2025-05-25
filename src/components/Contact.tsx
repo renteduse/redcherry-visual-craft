@@ -1,10 +1,15 @@
 
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, FileText } from "lucide-react";
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gray-900 text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-transparent to-red-600/20"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get In <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Touch</span>
@@ -14,7 +19,7 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
             
@@ -73,7 +78,7 @@ export const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input 
                   type="text" 
-                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Your Name"
                 />
               </div>
@@ -81,7 +86,7 @@ export const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Email</label>
                 <input 
                   type="email" 
-                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="your@email.com"
                 />
               </div>
@@ -89,27 +94,27 @@ export const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Phone</label>
                 <input 
                   type="tel" 
-                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Your Phone Number"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Service Needed</label>
-                <select className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all">
-                  <option value="">Select a service</option>
-                  <option value="signage">Signage & Branding</option>
-                  <option value="interior">Interior Design</option>
-                  <option value="printing">Printing & Graphics</option>
-                  <option value="blinds">Blinds & Flooring</option>
-                  <option value="landscaping">Landscaping</option>
-                  <option value="construction">Construction</option>
+                <select className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white">
+                  <option value="" className="bg-gray-800 text-white">Select a service</option>
+                  <option value="signage" className="bg-gray-800 text-white">Signage & Branding</option>
+                  <option value="interior" className="bg-gray-800 text-white">Interior Design</option>
+                  <option value="printing" className="bg-gray-800 text-white">Printing & Graphics</option>
+                  <option value="blinds" className="bg-gray-800 text-white">Blinds & Flooring</option>
+                  <option value="landscaping" className="bg-gray-800 text-white">Landscaping</option>
+                  <option value="construction" className="bg-gray-800 text-white">Construction</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea 
                   rows={4}
-                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Tell us about your project..."
                 ></textarea>
               </div>
@@ -120,6 +125,48 @@ export const Contact = () => {
                 Send Message
               </button>
             </form>
+          </div>
+        </div>
+
+        {/* Instagram and Portfolio Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Instagram QR Section */}
+          <div className="bg-white bg-opacity-5 rounded-2xl p-8 backdrop-blur-sm text-center">
+            <div className="mb-6">
+              <Instagram className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Follow Us on Instagram</h3>
+              <p className="text-gray-300 mb-6">@REDCHERRY_INTERIORS_BANGALORE</p>
+            </div>
+            
+            <div className="bg-white p-4 rounded-lg inline-block mb-4">
+              <img 
+                src="/lovable-uploads/3c6fa22a-3186-44e1-a69c-f985819ea552.png" 
+                alt="Instagram QR Code" 
+                className="w-48 h-48 mx-auto"
+              />
+            </div>
+            
+            <p className="text-sm text-gray-400">
+              Scan QR code to follow us on Instagram
+            </p>
+          </div>
+
+          {/* Portfolio PDF Section */}
+          <div className="bg-white bg-opacity-5 rounded-2xl p-8 backdrop-blur-sm text-center">
+            <div className="mb-6">
+              <FileText className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Our Portfolio</h3>
+              <p className="text-gray-300 mb-6">View our complete portfolio and past projects</p>
+            </div>
+            
+            <button className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+              <FileText className="w-5 h-5 inline-block mr-2" />
+              View Portfolio PDF
+            </button>
+            
+            <p className="text-sm text-gray-400 mt-4">
+              Download or view our complete project gallery
+            </p>
           </div>
         </div>
       </div>
