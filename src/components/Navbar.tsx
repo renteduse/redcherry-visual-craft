@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -16,6 +17,12 @@ export const Navbar = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);
+  };
+
+  const openPortfolio = () => {
+    // This will open the PDF in a new tab - user should place the PDF in the public folder
+    window.open('/portfolio.pdf', '_blank');
     setIsOpen(false);
   };
 
@@ -54,6 +61,10 @@ export const Navbar = () => {
                 <span className="relative z-10">About</span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </button>
+              <button onClick={openPortfolio} className="text-gray-700 hover:text-red-500 transition-all duration-300 relative group">
+                <span className="relative z-10">Portfolio</span>
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </button>
               <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-red-500 transition-all duration-300 relative group">
                 <span className="relative z-10">Contact</span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -79,6 +90,9 @@ export const Navbar = () => {
               </button>
               <button onClick={() => scrollToSection("about")} className="block px-3 py-2 text-gray-700 hover:text-red-500 transition-all duration-300 hover:translate-x-2">
                 About
+              </button>
+              <button onClick={openPortfolio} className="block px-3 py-2 text-gray-700 hover:text-red-500 transition-all duration-300 hover:translate-x-2">
+                Portfolio
               </button>
               <button onClick={() => scrollToSection("contact")} className="block px-3 py-2 text-gray-700 hover:text-red-500 transition-all duration-300 hover:translate-x-2">
                 Contact

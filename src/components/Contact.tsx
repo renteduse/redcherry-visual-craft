@@ -1,7 +1,49 @@
 
 import { Phone, Mail, MapPin, Instagram, FileText } from "lucide-react";
+import { useState } from "react";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const subject = `Inquiry for ${formData.service || 'Interior Services'} - ${formData.name}`;
+    const body = `
+Dear RedCherry Interiors Team,
+
+I am interested in your services. Here are my details:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Needed: ${formData.service}
+
+Message:
+${formData.message}
+
+Best regards,
+${formData.name}
+    `;
+
+    const mailtoLink = `mailto:redcherryinteriorsbangalore@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -73,11 +115,15 @@ export const Contact = () => {
 
           <div className="bg-white bg-opacity-5 rounded-2xl p-8 backdrop-blur-sm">
             <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input 
                   type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
                   className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Your Name"
                 />
@@ -86,6 +132,10 @@ export const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Email</label>
                 <input 
                   type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
                   className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="your@email.com"
                 />
@@ -94,26 +144,37 @@ export const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Phone</label>
                 <input 
                   type="tel" 
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Your Phone Number"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Service Needed</label>
-                <select className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white">
-                  <option value="" className="bg-gray-800 text-white">Select a service</option>
-                  <option value="signage" className="bg-gray-800 text-white">Signage & Branding</option>
-                  <option value="interior" className="bg-gray-800 text-white">Interior Design</option>
-                  <option value="printing" className="bg-gray-800 text-white">Printing & Graphics</option>
-                  <option value="blinds" className="bg-gray-800 text-white">Blinds & Flooring</option>
-                  <option value="landscaping" className="bg-gray-800 text-white">Landscaping</option>
-                  <option value="construction" className="bg-gray-800 text-white">Construction</option>
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-800 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                >
+                  <option value="">Select a service</option>
+                  <option value="signage">Signage & Branding</option>
+                  <option value="interior">Interior Design</option>
+                  <option value="printing">Printing & Graphics</option>
+                  <option value="blinds">Blinds & Flooring</option>
+                  <option value="landscaping">Landscaping</option>
+                  <option value="construction">Construction</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea 
                   rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-white placeholder-gray-300"
                   placeholder="Tell us about your project..."
                 ></textarea>

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export const Hero = () => {
   const [currentText, setCurrentText] = useState(0);
@@ -20,13 +20,13 @@ export const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
-      {/* Beautiful Interior Background */}
+      {/* Corporate Interior Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-red-50/95 z-10"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="interior" patternUnits="userSpaceOnUse" width="120" height="120"><rect width="120" height="120" fill="%23f9fafb"/><rect x="20" y="20" width="80" height="80" fill="%23ef4444" opacity="0.05"/><circle cx="60" cy="60" r="25" fill="%23dc2626" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23interior)"/></svg>')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
           }}
         ></div>
         
@@ -47,7 +47,7 @@ export const Hero = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Logo without animation */}
+          {/* Logo */}
           <div className="mb-8 animate-fade-in">
             <div className="w-24 h-24 mx-auto mb-6 transform hover:scale-110 transition-all duration-500">
               <img 
@@ -121,17 +121,6 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* Enhanced Scroll Indicator */}
-        <button 
-          onClick={scrollToServices}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:animate-pulse transition-all duration-300"
-        >
-          <div className="flex flex-col items-center">
-            <span className="text-red-500 text-sm font-medium mb-2">Scroll Down</span>
-            <ChevronDown className="w-8 h-8 text-red-500" />
-          </div>
-        </button>
       </div>
     </section>
   );
