@@ -22,11 +22,11 @@ export const Hero = () => {
     <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Corporate Interior Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-red-50/95 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-red-50/90 z-10"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+            backgroundImage: `url('/lovable-uploads/1796af00-abb3-4d71-8152-6b1188f3ae4a.png')`
           }}
         ></div>
         
